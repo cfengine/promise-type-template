@@ -1,0 +1,18 @@
+{
+  "name": "CFEngine Build module template repo",
+  "type": "module-repo",
+  "description": "This repo only provides 1 module, and is a good starting point for making your own modules",
+  "provides": {
+    "promise-type-git-example": {
+      "description": "A super simple example promise type",
+      "tags": ["promise-type"],
+      "repo": "https://github.com/cfengine/promise-type-template",
+      "by": "https://github.com/cfengine",
+      "dependencies": ["library-for-promise-types-in-python"],
+      "steps": [
+        "copy git_example.py modules/promises/",
+        "append enable.cf services/init.cf"
+      ]
+    }
+  }
+}
