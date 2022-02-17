@@ -1,4 +1,4 @@
-promise agent git
+promise agent git_example
 # @brief Define git promise type
 {
   path => "$(sys.workdir)/modules/promises/git_example.py";
