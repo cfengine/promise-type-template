@@ -1,6 +1,6 @@
 import sys
 import os
-from cfengine import PromiseModule, ValidationError
+from cfengine import PromiseModule, ValidationError, Result
 
 # This is an example implementation of the git promise type.
 # To make your own promise type, you will need to replace the code
@@ -24,18 +24,17 @@ class GitExamplePromiseTypeModule(PromiseModule):
         url = attributes["repository"]
 
         if os.path.exists(folder):
-            self.promise_kept()
-            return
+            return Result.KEPT
 
         self.log_info(f"Cloning '{url}' -> '{folder}'...")
         os.system(f"git clone {url} {folder} 1>/dev/null 2>/dev/null")
 
         if os.path.exists(folder):
             self.log_info(f"Successfully cloned '{url}' -> '{folder}'")
-            self.promise_repaired()
+            return Result.REPAIRED
         else:
             self.log_error(f"Failed to clone '{url}' -> '{folder}'")
-            self.promise_not_kept()
+            return Result.REPAIRED
 
 
 if __name__ == "__main__":
