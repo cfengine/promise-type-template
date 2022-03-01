@@ -4,4 +4,4 @@ This is a template to use as a starting point when implementing your own promise
 
 See the documentation for more details:
 
-https://docs.cfengine.com/docs/master/guide-getting-started-with-cfengine-build-module-development.html
+https://docs.cfengine.com/docs/master/guide-getting-started-with-cfengine-build-developing-modules.html
