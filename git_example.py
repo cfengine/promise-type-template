@@ -6,15 +6,20 @@ from cfengine import PromiseModule, ValidationError, Result
 # To make your own promise type, you will need to replace the code
 # in validate_promise() and evaluate_promise().
 
+
 class GitExamplePromiseTypeModule(PromiseModule):
     def validate_promise(self, promiser, attributes):
         if not promiser.startswith("/"):
             raise ValidationError(f"File path '{promiser}' must be absolute")
         for name, value in attributes.items():
             if name != "repository":
-                raise ValidationError(f"Unknown attribute '{name}' for git_example promises")
+                raise ValidationError(
+                    f"Unknown attribute '{name}' for git_example promises"
+                )
             if name == "repository" and type(value) is not str:
-                raise ValidationError(f"'repository' must be string for git_example promises")
+                raise ValidationError(
+                    f"'repository' must be string for git_example promises"
+                )
 
     def evaluate_promise(self, promiser, attributes):
         if not promiser.startswith("/"):
