@@ -1,7 +1,7 @@
 {
   "name": "CFEngine Build module template repo",
   "description": "This repo only provides 1 module, and is a good starting point for making your own modules",
-  "type": "module-repo",
+  "type": "module",
   "provides": {
     "promise-type-git-example": {
       "description": "A super simple example promise type",
