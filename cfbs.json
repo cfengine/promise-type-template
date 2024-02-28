@@ -52,6 +52,17 @@
       "name": "./enable.cf",
       "description": "The small policy snippet for enabling the promise type",
       "steps": ["append enable.cf services/init.cf"]
+    },
+    {
+      "name": "./git_example.cf",
+      "description": "Local policy file added using cfbs command line",
+      "tags": ["local"],
+      "added_by": "cfbs add",
+      "steps": [
+        "copy ./git_example.cf services/cfbs/git_example.cf",
+        "policy_files services/cfbs/git_example.cf",
+        "bundles git_example"
+      ]
     }
   ]
 }

@@ -1,0 +1,6 @@
+bundle agent git_example
+{
+  git_example:
+    "/tmp/promise-type-template"
+      repository => "https://github.com/cfengine/promise-type-template";
+}
